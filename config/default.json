@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb+srv://YuraMell:ghecfrltybc@cluster0.bfzpn.mongodb.net/productDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "The Loop Secret"
+}

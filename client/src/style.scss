@@ -425,6 +425,23 @@
       display: flex;
       align-items: center;
 
+<<<<<<< HEAD
+=======
+      input {
+        min-height: 40px;
+        width: 100%;
+        max-width: 220px;
+        outline: none;
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.03em;
+        color: #000000;
+      }
+
+>>>>>>> c1620bb0f54657c5df13d764dbfc568bd7dc8710
       label {
         font-family: Montserrat, sans-serif;
         font-style: normal;
