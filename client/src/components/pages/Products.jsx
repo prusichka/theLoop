@@ -5,15 +5,52 @@ import {allProducts} from "../../models";
 
 const Products = () => {
   let categoryProducts = allProducts.map(product => product.category)
-  let typeProducts = allProducts.map(product => product.type)
-  let [products, setProducts] = useState(allProducts)
-  let [filterProduct, setFilterProduct] = useState()
   categoryProducts = [...new Set(['Все товары',...categoryProducts])];
+
+  let typeProducts = allProducts.map(product => product.type)
   typeProducts = [...new Set(['Все товары',...typeProducts])];
 
-  function selectHandler() {
+  let [products, setProducts] = useState(allProducts)
 
+  const initialFilterState = {
+    // Значення state , для фільраціїй: Сортування по категорії і типу
+    category : {
+      value : null
+    },
+    type : {
+      value: null
+    }
   }
+
+  const [filterState, setFilterState] = useState(initialFilterState)
+
+  const filter = (newFilterState) => {
+    let productResult = allProducts
+
+    if (newFilterState.category.value === 'Все товары') {
+      setProducts(allProducts)
+      return;
+    }
+    if (newFilterState.type.value !== null) {
+      productResult.filter((el) => el.category === newFilterState.category.value);
+    }
+    if (newFilterState.type.value !== null) {
+      productResult.filter((el) => el.type === newFilterState.type.value);
+    }
+
+    setProducts(productResult);
+  }
+
+  console.log(products)
+
+  const updateFilterStateItemValue = ({ field, value }) => {
+    const newFilteringState = {
+      ...filterState,
+      [field]: { ...filterState[field], value: value },
+    };
+    setFilterState(newFilteringState);
+    filter(newFilteringState);
+  };
 
   return (
     <>
@@ -25,13 +62,23 @@ const Products = () => {
           <div className="filter">
             <div className="first">
               <label htmlFor="ice-cream-choice">Сортировать по:  </label>
-              <select id="category-list" onChange={selectHandler}>
+              <select
+                id="category-list"
+                onChange={(e) =>
+                  updateFilterStateItemValue({ field: 'category', value: e.target.value })
+                }
+              >
                 {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
               </select>
             </div>
             <div className="second">
               <label htmlFor="ice-cream-choice">Тип товара:  </label>
-              <select id="category-list" onChange={selectHandler} >
+              <select
+                id="category-list"
+                onChange={(e) =>
+                  updateFilterStateItemValue({ field: 'type', value: e.target.value })
+                }
+              >
                 {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
               </select>
             </div>
