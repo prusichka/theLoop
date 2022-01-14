@@ -27,21 +27,34 @@ const Products = () => {
   const filter = (newFilterState) => {
     let productResult = allProducts
 
-    if (newFilterState.category.value === 'Все товары') {
+    if (newFilterState.type.value === 'Все товары' && newFilterState.category.value === 'Все товары') {
       setProducts(allProducts)
       return;
     }
-    if (newFilterState.type.value !== null) {
-      productResult.filter((el) => el.category === newFilterState.category.value);
-    }
-    if (newFilterState.type.value !== null) {
-      productResult.filter((el) => el.type === newFilterState.type.value);
+
+    if (newFilterState.category.value !== null) {
+      productResult = productResult.filter((el) => el.category === newFilterState.category.value);
     }
 
+    if (newFilterState.type.value !== null) {
+      productResult = productResult.filter((el) => el.type === newFilterState.type.value);
+    }
+
+    if (newFilterState.category.value === 'Все товары') {
+      newFilterState.type.value !==null
+        ? setProducts(allProducts.filter((el) => el.type === newFilterState.type.value))
+        : setProducts(allProducts)
+      return;
+    }
+
+    if (newFilterState.type.value === 'Все товары') {
+      newFilterState.category.value !== null
+        ?   setProducts(allProducts.filter((el) => el.category === newFilterState.category.value))
+        :   setProducts(allProducts)
+      return;
+    }
     setProducts(productResult);
   }
-
-  console.log(products)
 
   const updateFilterStateItemValue = ({ field, value }) => {
     const newFilteringState = {
