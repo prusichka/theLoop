@@ -9,7 +9,7 @@ import { NotFound } from './components/pages/NotFound';
 import { SingleItem } from "./components/pages/SingleItem";
 import { Products } from "./components/pages/Products";
 import AuthPage from './components/pages/AuthPage';
-import {Cart} from "./components/Cart/Cart";
+import { Cart } from "./components/cart/Cart";
 
 export const useRoutes = isAuthentificated => {
   if (isAuthentificated) {
