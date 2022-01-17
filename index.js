@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-app.use('/api/auth', require('./routes/authRoutes'))
+app.use(express.json({ extended: true }))
+app.use('/auth', require('./routes/authRoutes'))
 
 const PORT = config.get('port') || 5000
 
