@@ -1,14 +1,19 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import {allProducts} from '../../models';
+import {useDispatch, useSelector} from "react-redux";
+import {_addToCart} from "../../store/reducers/cartReducer";
 
-const SingleItem = (props) => {
+const SingleItem = () => {
   const params = useParams();
-  console.log(props)
+  const dispatch = useDispatch();
+  const cartElement = useSelector(state => state.cart.cartArr)
   const product = allProducts.find(item => item._id === +params.id);
 
-  function addToCart() {
-    console.log(product)
+  function addToCart(product) {
+    cartElement.length === 0 || cartElement.find(el => el._id !== product._id)
+      ? dispatch(_addToCart(product))
+      : alert('Товар уже в корзине !')
   }
 
   return (
@@ -23,7 +28,7 @@ const SingleItem = (props) => {
             { parseInt(product.sales) > 0 && <h3>Sales: {product.sales}</h3>}
             <p>{product.description}</p>
             <strong>₽ {product.price}</strong>
-            <button onClick={addToCart}>Добавить в корзину</button>
+            <button onClick={() => addToCart(product)}>Добавить в корзину</button>
           </div>
         </div>
       </section>
