@@ -1,19 +1,9 @@
-import { createStore } from 'redux'
-import {allProducts} from "../models";
+import {combineReducers, createStore} from 'redux'
+import {cartReducer} from './reducers/cartReducer'
 
-const defaultState = [];
-
-
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TO_CART" :
-      return [...state,]
-    case "REMOVE_FROM_CART":
-      return  {}
-
-    default: return state
-  }
-}
+const rootReducer = combineReducers({
+  cart: cartReducer
+})
 
 
 export const store = createStore(rootReducer)

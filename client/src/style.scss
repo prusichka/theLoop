@@ -1063,3 +1063,84 @@ footer {
 .swiper-pagination {
   bottom: 0;
 }
+
+.cart-section {
+  padding: 100px 0;
+  .inner {
+    flex-direction: column;
+    align-items: center;
+    background: #ffdbf6;
+    border-radius: 8px;
+    padding: 30px 10px;
+
+    h3 {
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 33px;
+      line-height: 36px;
+      color: #000000;
+      text-align: center;
+    }
+
+    .element {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 205px;
+        border-radius: 8px;
+      }
+
+      .btn-add {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        background: teal;
+        border: none;
+        flex-shrink: 0;
+      }
+
+      .btn-sub {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        background: #ff1f59;
+        border: none;
+        flex-shrink: 0;
+      }
+
+      .right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 50px;
+
+        h2 {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 28px;
+          color: #000000;
+          margin-bottom: 25px;
+        }
+        p {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+          color: #000000;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}
