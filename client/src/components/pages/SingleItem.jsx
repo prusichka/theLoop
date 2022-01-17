@@ -1,14 +1,16 @@
 import React from 'react';
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {allProducts} from '../../models';
 
-const SingleItem = () => {
+const SingleItem = (props) => {
   const params = useParams();
-  const location = useLocation();
-  const locationSearch = location.search;
-  console.log(allProducts)
+  console.log(props)
   const product = allProducts.find(item => item._id === +params.id);
-  console.log(product)
+
+  function addToCart() {
+    console.log(product)
+  }
+
   return (
     <>
       <section className="item-product">
@@ -21,7 +23,7 @@ const SingleItem = () => {
             { parseInt(product.sales) > 0 && <h3>Sales: {product.sales}</h3>}
             <p>{product.description}</p>
             <strong>₽ {product.price}</strong>
-            <button>Добавить в корзину</button>
+            <button onClick={addToCart}>Добавить в корзину</button>
           </div>
         </div>
       </section>
@@ -29,4 +31,4 @@ const SingleItem = () => {
   );
 };
 
-export default SingleItem;
+export {SingleItem};

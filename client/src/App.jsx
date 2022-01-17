@@ -3,7 +3,7 @@ import { useRoutes } from './routes';
 import './style.scss'
 
 function App() {
-  const routes = useRoutes(false)
+  const routes = useRoutes(true)
   return (
     <>
       {routes}
