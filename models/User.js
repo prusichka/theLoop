@@ -12,7 +12,7 @@ const schema = new Schema({
   },
   links: [{
     type: Types.ObjectId,
-    ref: "Link"
+    ref: "Item"
   }]
 })
 

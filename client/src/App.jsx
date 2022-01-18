@@ -4,14 +4,21 @@ import './style.scss'
 import { Provider } from "react-redux";
 import { store } from './store/store';
 import { useAuth } from './components/hooks/auth.hook';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
   const { token, login, logout, userId, ready } = useAuth()
-  const routes = useRoutes(true)
+  const isAuthtentificated = !!token
+  const routes = useRoutes(isAuthtentificated)
   return (
-    <Provider store={store}>
-      {routes}
-    </Provider>
+    <AuthContext.Provider value={{
+      token, login, logout, userId, isAuthtentificated
+    }}>
+
+      <Provider store={store}>
+        {routes}
+      </Provider>
+    </AuthContext.Provider>
   );
 }
 
