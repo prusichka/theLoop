@@ -2,7 +2,6 @@ import React from 'react';
 import link from '../../images/link.svg'
 
 const SingleCategoriesLink = ({ description }) => {
-  console.log(description.img)
   return (
     <>
       <div className="single-categories">

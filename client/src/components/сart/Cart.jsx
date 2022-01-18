@@ -5,6 +5,7 @@ import {CartItem} from "./CartItem";
 const Cart = () => {
   const cartElements = useSelector(state => state.cart.cartArr)
   const [cartItems, setCartItems] = useState(cartElements)
+  // let totalPrice = cartItems.reduce((price,item) => price + )
 
 
   return (
@@ -13,13 +14,16 @@ const Cart = () => {
         {cartElements.length !== 0
           ? cartElements.map((el,id) => {
             return (
-              <CartItem key={id} element={el} cartItems={cartItems}/>
+              <CartItem key={id} element={el} cartItems={cartItems} setCartItems={setCartItems}/>
             )
           })
           : <h3>
             Cart is empty
           </h3>
         }
+        <strong>
+
+        </strong>
       </div>
     </section>
   );

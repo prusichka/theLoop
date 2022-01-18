@@ -1097,6 +1097,18 @@ footer {
         border-radius: 8px;
       }
 
+      .price {
+        display: flex;
+        flex-direction: column;
+        min-width: 100px;
+
+        .price-btn {
+          display: flex;
+          width: 100%;
+          justify-content: space-evenly;
+        }
+      }
+
       .btn-add {
         width: 36px;
         height: 36px;
@@ -1113,6 +1125,14 @@ footer {
         background: #ff1f59;
         border: none;
         flex-shrink: 0;
+      }
+
+      .totalPrice {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
       }
 
       .right {

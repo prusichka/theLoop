@@ -7,7 +7,6 @@ import Slide from "./Slide";
 import { slideDescription } from '../../models.js'
 
 const Slider = () => {
-  console.log(slideDescription)
   return (
     <>
       <section className="slider">

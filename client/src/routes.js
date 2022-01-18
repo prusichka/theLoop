@@ -9,7 +9,7 @@ import { NotFound } from './components/pages/NotFound';
 import { SingleItem } from "./components/pages/SingleItem";
 import { Products } from "./components/pages/Products";
 import AuthPage from './components/pages/AuthPage';
-import { Cart } from "./components/cart/Cart";
+import {Cart} from "./components/сart/Cart";
 
 export const useRoutes = isAuthentificated => {
   if (isAuthentificated) {
@@ -20,7 +20,7 @@ export const useRoutes = isAuthentificated => {
           <Route path='about' element={<About />} />
           <Route path='contacts' element={<Contacts />} />
           <Route path='products' element={<Products />} />
-          <Route path='cart' element={<Cart />} />
+          <Route path='cart' element={<Cart/>} />
           <Route path='category' element={<Products />} >
             <Route path='*' element={<Products />} />
           </Route>
