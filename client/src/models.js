@@ -8,7 +8,7 @@ export const allProducts = [
   {
     title: 'Коктейльное платье',
     img: NewModel,
-    price: '40 000',
+    price: 40_000,
     _id: 5,
     sales: 0,
     category: 'Для мужчин',
@@ -19,7 +19,7 @@ export const allProducts = [
   {
     title: 'Вечернее платье',
     img: NewModel,
-    price: '60 000',
+    price: 60_000,
     _id: 6,
     sales: 0,
     category: 'Для мужчин',
@@ -30,7 +30,7 @@ export const allProducts = [
   {
     title: 'Дэфолтный скин',
     img: NewModel,
-    price: '00 000',
+    price: 12_222,
     _id: 7,
     category: 'Для женщин',
     type: 'Платье',
@@ -41,7 +41,7 @@ export const allProducts = [
   {
     title: 'Старое платье',
     img: NewModel,
-    price: '10 000',
+    price: 10_000,
     _id: 8,
     category: 'Для женщин',
     type: 'Обувь',
@@ -52,7 +52,7 @@ export const allProducts = [
   {
     title: 'Пивная футболка',
     img: NewModel,
-    price: '30 000',
+    price: 30_000,
     _id: 1,
     category: 'Для детей',
     type: 'Обувь',
@@ -63,7 +63,7 @@ export const allProducts = [
   {
     title: 'Утреняя футболка',
     img: NewModel,
-    price: '25 000',
+    price: 25_000,
     _id: 2,
     sales: "50%",
     category: 'Для женщин',
@@ -74,7 +74,7 @@ export const allProducts = [
   {
     title: 'Рарный скин',
     img: NewModel,
-    price: '18 000',
+    price: 18_000,
     _id: 3,
     category: 'Для детей',
     type: 'Платье',
@@ -85,7 +85,7 @@ export const allProducts = [
   {
     title: 'Старая футболка',
     img: NewModel,
-    price: '10 000',
+    price: 10_000,
     _id: 4,
     sales: "50%",
     category: 'Для женщин',

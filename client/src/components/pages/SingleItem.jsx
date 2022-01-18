@@ -10,14 +10,8 @@ const SingleItem = () => {
   const cartElement = useSelector(state => state.cart.cartArr)
   const product = allProducts.find(item => item._id === +params.id);
 
-  function isTrue(product) {
-    cartElement.find(el => el._id === product._id)
-  }
-
-  isTrue(product);
-
   function addToCart(product) {
-    cartElement.length === 0 || cartElement.find(el => el._id !== product._id)
+    cartElement.length === 0 || !cartElement.find(el => el._id === product._id)
       ? dispatch(_addToCart(product))
       : alert('Товар уже в корзине !')
   }

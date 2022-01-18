@@ -5,7 +5,6 @@ import {CartItem} from "./CartItem";
 const Cart = () => {
   const cartElements = useSelector(state => state.cart.cartArr)
   const [cartItems, setCartItems] = useState(cartElements)
-  // let totalPrice = cartItems.reduce((price,item) => price + )
 
 
   return (
