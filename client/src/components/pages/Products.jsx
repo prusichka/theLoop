@@ -1,23 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import NewModelItem from "../models/NewModelItem";
-import {allProducts} from "../../models";
+import { allProducts } from "../../models";
+import Select from '../UI/Select';
 
 const Products = () => {
   let categoryProducts = allProducts.map(product => product.category)
-  categoryProducts = [...new Set(['Все товары',...categoryProducts])];
+  categoryProducts = [...new Set(['Все товары', ...categoryProducts])];
 
   let typeProducts = allProducts.map(product => product.type)
-  typeProducts = [...new Set(['Все товары',...typeProducts])];
+  typeProducts = [...new Set(['Все товары', ...typeProducts])];
 
   let [products, setProducts] = useState(allProducts)
 
   const initialFilterState = {
     // Значення state , для фільраціїй: Сортування по категорії і типу
-    category : {
-      value : null
+    category: {
+      value: null
     },
-    type : {
+    type: {
       value: null
     }
   }
@@ -32,27 +33,27 @@ const Products = () => {
       return;
     }
 
-    if (newFilterState.category.value !== null) {
-      productResult = productResult.filter((el) => el.category === newFilterState.category.value);
+    function filterProduct(productValue) {
+      if (newFilterState[productValue].value !== null) {
+        productResult = productResult.filter((el) => el[productValue] === newFilterState[productValue].value);
+      }
     }
 
-    if (newFilterState.type.value !== null) {
-      productResult = productResult.filter((el) => el.type === newFilterState.type.value);
-    }
+    filterProduct('category')
+    filterProduct('type')
 
     if (newFilterState.category.value === 'Все товары') {
-      newFilterState.type.value !==null
+      return newFilterState.type.value !== null
         ? setProducts(allProducts.filter((el) => el.type === newFilterState.type.value))
         : setProducts(allProducts)
-      return;
     }
 
     if (newFilterState.type.value === 'Все товары') {
-      newFilterState.category.value !== null
-        ?   setProducts(allProducts.filter((el) => el.category === newFilterState.category.value))
-        :   setProducts(allProducts)
-      return;
+      return newFilterState.category.value !== null
+        ? setProducts(allProducts.filter((el) => el.category === newFilterState.category.value))
+        : setProducts(allProducts)
     }
+
     setProducts(productResult);
   }
 
@@ -94,6 +95,7 @@ const Products = () => {
               >
                 {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
               </select>
+              <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
             </div>
           </div>
           <div className="new-models-all">
@@ -106,4 +108,4 @@ const Products = () => {
   );
 };
 
-export {Products};
+export { Products };

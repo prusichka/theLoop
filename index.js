@@ -6,6 +6,7 @@ const app = express()
 
 app.use(express.json({ extended: true }))
 app.use('/auth', require('./routes/authRoutes'))
+app.use('/link', require('./routes/itemRoutes'))
 
 const PORT = config.get('port') || 5000
 
