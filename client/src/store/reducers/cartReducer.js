@@ -13,7 +13,7 @@ export const cartReducer = (state = defaultStateCart, action ) => {
     case REMOVE_FROM_CART :
       return {...state, cartArr: state.cartArr.filter(cartItem => cartItem._id !== action.payload) }
     case ADD_ANOTHER_ONE:
-      return {...state, cartArr: [...state.cartArr, ]}
+      return {...state, cartArr: [...state.cartArr, state.cartArr.find(product => product._id === action.payload)]}
     default: return state
   }
 }

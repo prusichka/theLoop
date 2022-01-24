@@ -95,7 +95,7 @@ const Products = () => {
               >
                 {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
               </select>
-              <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
+              {/*<Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />*/}
             </div>
           </div>
           <div className="new-models-all">

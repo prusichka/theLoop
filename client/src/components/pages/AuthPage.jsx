@@ -35,33 +35,33 @@ const AuthPage = () => {
   }
 
   return (
-    <div className="row">
-      <div className="col s6 offset-s3">
-        <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">Авторизация</span>
+    <div className="section-auth">
+      <div className="inner">
+        <div className="form-wrap">
+          <div className="inputs">
+            <span className="title">Авторизация</span>
             <div>
 
-              <div className="input-field">
+              <div className="field">
                 <input
                   placeholder="Введите email"
                   id="email"
                   type="text"
                   name="email"
-                  className="yellow-input"
+                  className=""
                   value={form.email}
                   onChange={changeHandler}
                 />
                 <label htmlFor="email">Email</label>
               </div>
 
-              <div className="input-field">
+              <div className="field">
                 <input
                   placeholder="Введите пароль"
                   id="password"
                   type="password"
                   name="password"
-                  className="yellow-input"
+                  className=""
                   value={form.password}
                   onChange={changeHandler}
                 />
@@ -70,17 +70,16 @@ const AuthPage = () => {
 
             </div>
           </div>
-          <div className="card-action">
+          <div className="buttons">
             <button
-              className="btn yellow darken-4"
-              style={{ marginRight: 10 }}
+              className=""
               disabled={loading}
               onClick={loginHandler}
             >
               Войти
             </button>
             <button
-              className="btn grey lighten-1 black-text"
+              className=""
               onClick={registerHandler}
               disabled={loading}
             >

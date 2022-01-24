@@ -91,6 +91,49 @@ export const allProducts = [
     category: 'Для женщин',
     type: 'Футболка',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, est, laborum. Amet consectetur consequuntur deserunt ex, excepturi facere iste, magni minus nostrum quam quas reprehenderit sequi tenetur voluptatem voluptates, voluptatibus?'
+  },
+  {
+    title: 'Красное платье',
+    img: NewModel,
+    price: 16_262,
+    _id: 9,
+    category: 'Для женщин',
+    type: 'Платье',
+    new: true,
+    sales: 0,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, est, laborum. Amet consectetur consequuntur deserunt ex, excepturi facere iste, magni minus nostrum quam quas reprehenderit sequi tenetur voluptatem voluptates, voluptatibus?'
+  },
+  {
+    title: 'Новые ботинки',
+    img: NewModel,
+    price: 100_000,
+    _id: 10,
+    category: 'Для женщин',
+    type: 'Обувь',
+    new: true,
+    sales: 0,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, est, laborum. Amet consectetur consequuntur deserunt ex, excepturi facere iste, magni minus nostrum quam quas reprehenderit sequi tenetur voluptatem voluptates, voluptatibus?'
+  },
+  {
+    title: 'Child футболка',
+    img: NewModel,
+    price: 30_000,
+    _id: 11,
+    category: 'Для детей',
+    type: 'Футболка',
+    sales: "50%",
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, est, laborum. Amet consectetur consequuntur deserunt ex, excepturi facere iste, magni minus nostrum quam quas reprehenderit sequi tenetur voluptatem voluptates, voluptatibus?'
+
+  },
+  {
+    title: 'Грязная футболка',
+    img: NewModel,
+    price: 5_000,
+    _id: 12,
+    sales: "50%",
+    category: 'Для женщин',
+    type: 'Футболка',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, est, laborum. Amet consectetur consequuntur deserunt ex, excepturi facere iste, magni minus nostrum quam quas reprehenderit sequi tenetur voluptatem voluptates, voluptatibus?'
 
   },
 ]
