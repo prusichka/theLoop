@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../../store/reducers/cartReducer";
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart, addItemCount, removeItemCount } from '../../store/reducers/cartReducer';
 
 const CartItem = ({ element }) => {
   const dispatch = useDispatch()
+  const cartElements = useSelector(state => state.cart.cartArr)
+  console.log(cartElements);
   let [qty, setQty] = useState(1)
-  let totalProductPrice = qty * parseInt(element.price)
-  let qtyPrice = `${qty} * ${element.price}`
+  // let totalProductPrice = qty * parseInt(element.price)
+  // let qtyPrice = `${qty} * ${element.price}`
 
   const removeItem = (element) => {
-    qty > 1
-      ? setQty(--qty)
+    qty > 0
+      ? dispatch(removeItemCount(element._id))
       : dispatch(removeFromCart(element._id))
   }
   const addAnotherOne = () => {
-    setQty(++qty);
+    dispatch(addItemCount(element._id))
   }
 
   return (
@@ -36,10 +38,10 @@ const CartItem = ({ element }) => {
           </div>
           <div className='totalPrice'>
             <strong>
-              {qtyPrice}
+              {/* {qtyPrice} */}
             </strong>
             <span>
-              {totalProductPrice}
+              {/* {totalProductPrice} */}
             </span>
           </div>
         </div>
