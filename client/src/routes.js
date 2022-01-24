@@ -7,8 +7,9 @@ import { Contacts } from './components/pages/Contacts';
 import { Home } from './components/pages/Home';
 import { SingleItem } from "./components/pages/SingleItem";
 import { Products } from "./components/pages/Products";
-import AuthPage from './components/pages/AuthPage';
+import { AuthPage } from './components/pages/AuthPage';
 import { Cart } from "./components/сart/Cart";
+import { Create } from './components/pages/Create';
 
 export const useRoutes = isAuthentificated => {
   if (isAuthentificated) {
@@ -19,6 +20,7 @@ export const useRoutes = isAuthentificated => {
           <Route path='about' element={<About />} />
           <Route path='contacts' element={<Contacts />} />
           <Route path='products' element={<Products />} />
+          <Route path='create' element={<Create />} />
           <Route path='cart' element={<Cart />} />
           <Route path='category' element={<Products />} >
             <Route path='*' element={<Products />} />
@@ -41,9 +43,7 @@ export const useRoutes = isAuthentificated => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="auth" element={<AuthPage />} />
-          <Route path="*"
-            element={<Navigate to="auth" />}
-          />
+          <Route path="*" element={<Navigate to="auth" />} />
         </Route>
       </Routes>
     )

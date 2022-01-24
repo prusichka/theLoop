@@ -28,18 +28,11 @@ const Header = () => {
               <li><Link to="/products">Для мужчин</Link></li>
               <li><Link to="/products">Для женщин</Link></li>
               <li><Link to="/products">Для детей</Link></li>
-              <li>
-                <Link to='/' className="logo"><img src={logo} alt='logo' /></Link>
-              </li>
-              <li>
-                <Link to='/about'>Оплата</Link>
-              </li>
-              <li>
-                <Link to='/contacts'>Доставка</Link>
-              </li>
-              <li>
-                <Link to='/auth' onClick={logoutHandler}>Выйти</Link>
-              </li>
+              <li><Link to='/' className="logo"><img src={logo} alt='logo' /></Link></li>
+              <li><Link to='/about'>Оплата</Link></li>
+              <li><Link to='/contacts'>Доставка</Link></li>
+              <li><Link to='/create'>Создать</Link></li>
+              <li><Link to='/auth' onClick={logoutHandler}>Выйти</Link></li>
             </ul>
             <Link to='cart'>
               <div className="cart">

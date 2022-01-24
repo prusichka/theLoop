@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import NewModelItem from "../models/NewModelItem";
 import { allProducts } from "../../models";
@@ -42,6 +42,7 @@ const Products = () => {
     filterProduct('category')
     filterProduct('type')
 
+
     if (newFilterState.category.value === 'Все товары') {
       return newFilterState.type.value !== null
         ? setProducts(allProducts.filter((el) => el.type === newFilterState.type.value))
@@ -75,26 +76,9 @@ const Products = () => {
           </h2>
           <div className="filter">
             <div className="first">
-              <label htmlFor="ice-cream-choice">Сортировать по:  </label>
-              <select
-                id="category-list"
-                onChange={(e) =>
-                  updateFilterStateItemValue({ field: 'category', value: e.target.value })
-                }
-              >
-                {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
-              </select>
+              <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={categoryProducts} title={'Тип категории:  '} field={'category'} />
             </div>
             <div className="second">
-              <label htmlFor="ice-cream-choice">Тип товара:  </label>
-              <select
-                id="category-list"
-                onChange={(e) =>
-                  updateFilterStateItemValue({ field: 'type', value: e.target.value })
-                }
-              >
-                {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
-              </select>
               <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
             </div>
           </div>

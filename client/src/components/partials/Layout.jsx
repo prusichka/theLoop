@@ -9,12 +9,6 @@ const Layout = () => {
       <Header />
       <Outlet />
       <Footer />
-      <div className="copyright">
-        <div className="inner">
-          <span>Copyright © 2019. Все права защищены</span>
-          <span>Политика приватности</span>
-        </div>
-      </div>
     </>
   )
 }
