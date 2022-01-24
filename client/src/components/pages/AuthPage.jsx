@@ -92,4 +92,4 @@ const AuthPage = () => {
   )
 }
 
-export default AuthPage
+export { AuthPage }

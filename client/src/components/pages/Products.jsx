@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import NewModelItem from "../models/NewModelItem";
 import { allProducts } from "../../models";
@@ -42,6 +42,7 @@ const Products = () => {
     filterProduct('category')
     filterProduct('type')
 
+
     if (newFilterState.category.value === 'Все товары') {
       return newFilterState.type.value !== null
         ? setProducts(allProducts.filter((el) => el.type === newFilterState.type.value))
@@ -75,17 +76,10 @@ const Products = () => {
           </h2>
           <div className="filter">
             <div className="first">
-              <label htmlFor="ice-cream-choice">Сортировать по:  </label>
-              <select
-                id="category-list"
-                onChange={(e) =>
-                  updateFilterStateItemValue({ field: 'category', value: e.target.value })
-                }
-              >
-                {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
-              </select>
+              <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={categoryProducts} title={'Тип категории:  '} field={'category'} />
             </div>
             <div className="second">
+<<<<<<< HEAD
               <label htmlFor="ice-cream-choice">Тип товара:  </label>
               <select
                 id="category-list"
@@ -96,6 +90,9 @@ const Products = () => {
                 {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
               </select>
               {/*<Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />*/}
+=======
+              <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
+>>>>>>> f317eaad1b4bffc065eedc5d45bb0743da6429ab
             </div>
           </div>
           <div className="new-models-all">

@@ -5,9 +5,8 @@ const Select = ({ updateFilterStateItemValue, typeProducts, title, field }) => {
     <>
       <label htmlFor="ice-cream-choice">{title}</label>
       <select
-        id="category-list"
         onChange={(e) => {
-          updateFilterStateItemValue({ field: { field }, value: e.target.value })
+          updateFilterStateItemValue({ field: field, value: e.target.value })
         }
         }
       >
