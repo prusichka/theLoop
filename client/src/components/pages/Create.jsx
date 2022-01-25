@@ -3,7 +3,9 @@ import {allProducts} from "../../models";
 import Select from "../UI/Select";
 
 let typeProducts = allProducts.map(product => product.type)
+let categoryProducts = allProducts.map(product => product.category)
 typeProducts = [...new Set([...typeProducts])];
+categoryProducts = [...new Set([...categoryProducts])];
 
 const Create = () => {
   const [image, setImage] = useState()
@@ -58,11 +60,16 @@ const Create = () => {
               Категория
             </label>
             <select name="category" id="category">
-              {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
+              {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
             </select>
           </div>
           <div className="field">
-            <Select typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
+            <label htmlFor="category">
+              Категория
+            </label>
+            <select name="category" id="category">
+              {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
+            </select>
           </div>
           <div className="field">
             <label htmlFor="description">
@@ -95,6 +102,9 @@ const Create = () => {
         </div>
           <img src={image} alt="" />
         </div>
+        <button>
+          Добавить товар
+        </button>
       </div>
     </section>
   );

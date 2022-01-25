@@ -1295,6 +1295,10 @@ footer {
   padding: 100px 0;
 
   .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     .create {
       width: 100%;
       display: flex;
@@ -1398,6 +1402,36 @@ footer {
           width: auto;
           min-height: 20px;
         }
+      }
+    }
+
+    button {
+      width: 100%;
+      max-width: 230px;
+      background: transparent;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 8px;
+      font-family: "Montserrat", sans-serif;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      min-height: 40px;
+      font-style: normal;
+      cursor: pointer;
+      transition: 0.5s;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 17px;
+      letter-spacing: 0.03em;
+      color: #212121;
+
+      &:hover {
+        background: #ffdca9;
+        border: 1px solid #ffc775;
+        font-size: 18px;
+      }
+
+      &:active {
+        border: 2px solid #ffc775;
       }
     }
   }
