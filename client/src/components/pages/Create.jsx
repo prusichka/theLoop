@@ -43,7 +43,8 @@ const Create = () => {
       type: typeRef.current.value,
       new: newRef.current.checked,
       img: image,
-      _id: allProducts.length+1
+      description: descriptionRef.current.value,
+      _id: selector.length+1
     }
 
     dispatch(_addNewCart(newObj))

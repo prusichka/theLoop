@@ -8,7 +8,8 @@ const SingleItem = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const cartElement = useSelector(state => state.cart.cartArr)
-  const product = allProducts.find(item => item._id === +params.id);
+  const selector = useSelector(state=>state.newProduct.newCartArr)
+  const product = selector.find(item => item._id === +params.id);
 
   function addToCart(product) {
     cartElement.length === 0 || !cartElement.find(el => el._id === product._id)

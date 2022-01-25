@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NewModelItem from "../models/NewModelItem";
 import { allProducts } from "../../models";
 import Select from '../UI/Select';
+import {useSelector} from "react-redux";
 
 const Products = () => {
   let categoryProducts = allProducts.map(product => product.category)
@@ -10,8 +11,8 @@ const Products = () => {
 
   let typeProducts = allProducts.map(product => product.type)
   typeProducts = [...new Set(['Все товары', ...typeProducts])];
-
-  let [products, setProducts] = useState(allProducts)
+  const selector = useSelector(state=>state.newProduct.newCartArr)
+  let [products, setProducts] = useState(selector)
 
   const initialFilterState = {
     // Значення state , для фільраціїй: Сортування по категорії і типу
@@ -26,10 +27,10 @@ const Products = () => {
   const [filterState, setFilterState] = useState(initialFilterState)
 
   const filter = (newFilterState) => {
-    let productResult = allProducts
+    let productResult = selector
 
     if (newFilterState.type.value === 'Все товары' && newFilterState.category.value === 'Все товары') {
-      setProducts(allProducts)
+      setProducts(selector)
       return;
     }
 
@@ -45,14 +46,14 @@ const Products = () => {
 
     if (newFilterState.category.value === 'Все товары') {
       return newFilterState.type.value !== null
-        ? setProducts(allProducts.filter((el) => el.type === newFilterState.type.value))
-        : setProducts(allProducts)
+        ? setProducts(selector.filter((el) => el.type === newFilterState.type.value))
+        : setProducts(selector)
     }
 
     if (newFilterState.type.value === 'Все товары') {
       return newFilterState.category.value !== null
-        ? setProducts(allProducts.filter((el) => el.category === newFilterState.category.value))
-        : setProducts(allProducts)
+        ? setProducts(selector.filter((el) => el.category === newFilterState.category.value))
+        : setProducts(selector)
     }
 
     setProducts(productResult);
