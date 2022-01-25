@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Slide = ({ slideDescription }) => {
   return (
@@ -6,7 +7,7 @@ const Slide = ({ slideDescription }) => {
       <div className="left">
         <h2>{slideDescription.title}</h2>
         <strong>{slideDescription.sales}</strong>
-        <a href='/'>{slideDescription.linkTitle}</a>
+        <Link to='products'>{slideDescription.linkTitle}</Link>
       </div>
       <div className="right">
         <img src={slideDescription.img} alt="" />

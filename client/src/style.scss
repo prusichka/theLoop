@@ -1098,38 +1098,41 @@ footer {
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: 340px;
-      justify-content: space-between;
+      justify-content: center;
 
-      button {
-        font-family: Montserrat, sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        transition: 0.5s;
-        border: 1px solid #ffc775;
-        min-height: 60px;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-        background: #ffdca9;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 200px;
+      a {
+        text-decoration: none;
+        margin-right: 20px;
 
-        &:hover {
-          background: #6bffd0 ;
-          border: 1px solid #266c51;
-          font-size: 20px;
+        button {
+          font-family: Montserrat, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          transition: 0.5s;
+          border: 1px solid #ffc775;
+          min-height: 60px;
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          border-radius: 8px;
+          background: #ffdca9;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 200px;
+
+          &:hover {
+            background: #6bffd0 ;
+            border: 1px solid #266c51;
+            font-size: 20px;
+          }
+
+          &:active {
+            border: 2px;
+          }
+
         }
-
-        &:active {
-          border: 2px;
-        }
-
       }
 
       span {
@@ -1389,7 +1392,7 @@ footer {
         width: 30%;
         margin-bottom: 50px;
 
-        &:nth-last-child(-n+2) {
+        &:nth-last-child(-n+3) {
           cursor: pointer;
 
           label {
@@ -1494,6 +1497,7 @@ footer {
       line-height: 17px;
       letter-spacing: 0.03em;
       color: #212121;
+      margin: 0 auto;
 
       &:hover {
         background: #ffdca9;
