@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../../store/reducers/cartReducer";
+import React from 'react';
+import { useSelector } from "react-redux";
 import { CartItem } from "./CartItem";
 import { Total } from './Total';
 
 const Cart = () => {
   const cartElements = useSelector(state => state.cart.cartArr)
 
-  console.log(cartElements);
   return (
     <section className='cart-section'>
       <div className="inner">
