@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 
-import React, {useEffect, useState} from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart } from "../../store/reducers/cartReducer";
-=======
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFromCart, addItemCount, removeItemCount } from '../../store/reducers/cartReducer';
->>>>>>> c47629cdeec357e71df67da1152a10207a6ff9ba
 
 const CartItem = ({ element }) => {
   const dispatch = useDispatch()
