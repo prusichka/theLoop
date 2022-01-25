@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {allProducts} from "../../models";
-import Select from "../UI/Select";
+import {useDispatch, useSelector} from "react-redux";
+import {_addNewCart} from "../../store/reducers/newProductReducer";
 
 let typeProducts = allProducts.map(product => product.type)
 let categoryProducts = allProducts.map(product => product.category)
@@ -8,7 +9,19 @@ typeProducts = [...new Set([...typeProducts])];
 categoryProducts = [...new Set([...categoryProducts])];
 
 const Create = () => {
+  const dispatch = useDispatch()
+  const selector = useSelector(state=>state.newProduct.newCartArr)
   const [image, setImage] = useState()
+  const [newProductObj, setNewProductObj] = useState({})
+  const titleRef = useRef()
+  const priceRef = useRef()
+  const descriptionRef = useRef()
+  const saleRef = useRef()
+  const categoryRef = useRef()
+  const typeRef = useRef()
+  const newRef = useRef()
+  const imgRef = useRef()
+  console.log(selector)
 
   function showFile(event) {
     const {id} = event.target
@@ -19,6 +32,21 @@ const Create = () => {
     reader.onload = function() {
       setImage(reader.result)
     };
+  }
+
+  function addNewProduct () {
+    const newObj = {
+      title: titleRef.current.value,
+      price: parseInt(priceRef.current.value),
+      sales: parseInt(saleRef.current.value),
+      category: categoryRef.current.value,
+      type: typeRef.current.value,
+      new: newRef.current.checked,
+      img: image,
+      _id: allProducts.length+1
+    }
+
+    dispatch(_addNewCart(newObj))
   }
 
   return (
@@ -33,7 +61,9 @@ const Create = () => {
               type="text"
               placeholder='Название'
               id='title'
-              name='title' />
+              name='title'
+              ref={titleRef}
+              onChange={(e) => {setNewProductObj({titleRef})}}/>
           </div>
           <div className="field">
             <label htmlFor="price">
@@ -43,7 +73,9 @@ const Create = () => {
               type="number"
               placeholder='Цена'
               id='price'
-              name='price' />
+              name='price'
+              ref={priceRef}
+              onChange={(e) => {setNewProductObj({titleRef})}} />
           </div>
           <div className="field">
             <label htmlFor="sale">
@@ -53,21 +85,24 @@ const Create = () => {
               type="text"
               placeholder='Скидка'
               id='sale'
-              name='sale' />
+              name='sale'
+              ref={saleRef}
+              onChange={(e) => {setNewProductObj({saleRef})}}
+            />
           </div>
           <div className="field">
             <label htmlFor="category">
               Категория
             </label>
-            <select name="category" id="category">
+            <select name="category" id="category" ref={categoryRef} onChange={(e) => {setNewProductObj({categoryRef})}}>
               {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
             </select>
           </div>
           <div className="field">
-            <label htmlFor="category">
-              Категория
+            <label htmlFor="type">
+              Тип товара
             </label>
-            <select name="category" id="category">
+            <select name="type" id="type" ref={typeRef} onChange={(e) => {setNewProductObj({typeRef})}}>
               {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
             </select>
           </div>
@@ -78,17 +113,23 @@ const Create = () => {
             <textarea
               placeholder='Описание'
               id='description'
-              name='description' />
+              name='description'
+              ref={descriptionRef}
+              onChange={(e) => {setNewProductObj({descriptionRef})}}
+            />
           </div>
           <div className="field check-box">
-            <label htmlFor="title">
+            <label htmlFor="new">
               Новинка
             </label>
             <input
               type="checkbox"
               placeholder='Название'
-              id='title'
-              name='title' />
+              id='new'
+              name='new'
+              ref={newRef}
+              onChange={(e) => {setNewProductObj({newRef})}}
+                />
           </div>
           <div className="field">
             <label htmlFor="image">
@@ -97,12 +138,13 @@ const Create = () => {
                 type="file"
                 id='image'
                 onChange={(e) => showFile(e)}
-                name='description' />
+                name='image'
+                ref={imgRef}/>
             </label>
         </div>
           <img src={image} alt="" />
         </div>
-        <button>
+        <button onClick={addNewProduct}>
           Добавить товар
         </button>
       </div>

@@ -79,15 +79,6 @@ const Products = () => {
               <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={categoryProducts} title={'Тип категории:  '} field={'category'} />
             </div>
             <div className="second">
-              <label htmlFor="ice-cream-choice">Тип товара:  </label>
-              <select
-                id="category-list"
-                onChange={(e) =>
-                  updateFilterStateItemValue({ field: 'type', value: e.target.value })
-                }
-              >
-                {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
-              </select>
               {/*<Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />*/}
               <Select updateFilterStateItemValue={updateFilterStateItemValue} typeProducts={typeProducts} title={'Тип товара:  '} field={'type'} />
             </div>
