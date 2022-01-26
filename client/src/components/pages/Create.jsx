@@ -12,7 +12,6 @@ const Create = () => {
   const dispatch = useDispatch()
   const selector = useSelector(state=>state.newProduct.newCartArr)
   const [image, setImage] = useState()
-  const [newProductObj, setNewProductObj] = useState({})
   const titleRef = useRef()
   const priceRef = useRef()
   const descriptionRef = useRef()
@@ -21,7 +20,7 @@ const Create = () => {
   const typeRef = useRef()
   const newRef = useRef()
   const imgRef = useRef()
-  console.log(selector)
+  const formRef = useRef()
 
   function showFile(event) {
     const {id} = event.target
@@ -46,14 +45,22 @@ const Create = () => {
       description: descriptionRef.current.value,
       _id: selector.length+1
     }
-
     dispatch(_addNewCart(newObj))
+  }
+
+  function onSubmitForm(e) {
+    e.preventDefault();
+    const inputsArr = Array.from(formRef.current.children).filter(el => el.classList.contains('field') && !el.classList.contains('field-mage'));
+    inputsArr.map((el) => {
+      // console.log(el.lastChild.checked || el.lastChild.value)
+      console.log(el.lastChild.id)
+    })
   }
 
   return (
     <section className='section-create'>
       <div className="inner">
-        <div className="create">
+        <form ref={formRef} onSubmit={(e) => onSubmitForm(e)} className="create">
           <div className="field">
             <label htmlFor="title">
               Название
@@ -64,7 +71,7 @@ const Create = () => {
               id='title'
               name='title'
               ref={titleRef}
-              onChange={(e) => {setNewProductObj({titleRef})}}/>
+              />
           </div>
           <div className="field">
             <label htmlFor="price">
@@ -75,8 +82,7 @@ const Create = () => {
               placeholder='Цена'
               id='price'
               name='price'
-              ref={priceRef}
-              onChange={(e) => {setNewProductObj({titleRef})}} />
+              ref={priceRef} />
           </div>
           <div className="field">
             <label htmlFor="sale">
@@ -85,17 +91,16 @@ const Create = () => {
             <input
               type="text"
               placeholder='Скидка'
-              id='sale'
+              id='sales'
               name='sale'
               ref={saleRef}
-              onChange={(e) => {setNewProductObj({saleRef})}}
             />
           </div>
           <div className="field">
             <label htmlFor="category">
               Категория
             </label>
-            <select name="category" id="category" ref={categoryRef} onChange={(e) => {setNewProductObj({categoryRef})}}>
+            <select name="category" id="category" ref={categoryRef}>
               {categoryProducts.map((product, id) => <option key={id}> {product} </option>)}
             </select>
           </div>
@@ -103,7 +108,7 @@ const Create = () => {
             <label htmlFor="type">
               Тип товара
             </label>
-            <select name="type" id="type" ref={typeRef} onChange={(e) => {setNewProductObj({typeRef})}}>
+            <select name="type" id="type" ref={typeRef}>
               {typeProducts.map((product, id) => <option key={id}> {product} </option>)}
             </select>
           </div>
@@ -116,7 +121,6 @@ const Create = () => {
               id='description'
               name='description'
               ref={descriptionRef}
-              onChange={(e) => {setNewProductObj({descriptionRef})}}
             />
           </div>
           <div className="field check-box">
@@ -129,25 +133,24 @@ const Create = () => {
               id='new'
               name='new'
               ref={newRef}
-              onChange={(e) => {setNewProductObj({newRef})}}
                 />
           </div>
-          <div className="field">
+          <div className="field field-mage">
             <label htmlFor="image">
               Загрузить картинку
-              <input
-                type="file"
-                id='image'
-                onChange={(e) => showFile(e)}
-                name='image'
-                ref={imgRef}/>
             </label>
+            <input
+              type="file"
+              id='image'
+              onChange={(e) => showFile(e)}
+              name='image'
+              ref={imgRef}/>
         </div>
           <img src={image} alt="" />
-        </div>
         <button onClick={addNewProduct}>
           Добавить товар
         </button>
+        </form>
       </div>
     </section>
   );
